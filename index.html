@@ -17,14 +17,20 @@
             let taskInput = document.getElementById('new-task');
             var task = taskInput.value;
             if (task) {
-                var ul = document.getElementById('todo-list');
+                var tasks = document.getElementById('todo-list');
                 var li = document.createElement('li');
-                li.appendChild(document.createTextNode(task));
-                ul.appendChild(li);
+                li.textContent = task;
+                
+                let deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.onclick = function() {
+                    tasks.removeChild(li);
+                };
+                li.appendChild(deleteBtn);
+                tasks.appendChild(li);
                 taskInput.value = '';
             }
         }
-
     </script>
 </body>
 </html>
